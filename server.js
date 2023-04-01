@@ -5,76 +5,82 @@ const app = express();
 require("dotenv").config();
 
 app.use(express.static(path.resolve(__dirname, 'src/assets')));
+app.use(express.static(path.resolve(__dirname, 'src/views')));
 
 const port = process.env.PORT || 8000
 
 // configure
-nunjucks.configure('src/views', {
-    autoescape: true,
-    express: app
-});
+// nunjucks.configure('views', { autoescape: true });
+// nunjucks.configure('src/views', {
+//     autoescape: true,
+//     express: app
+// });
 
 
 
 // ============================= ROUTES START ======================================================================================
 app.get('/404', function (req, res) {
-    res.render('404.njk');
+    res.render('404.html');
 });
 
 app.get('/blank', function (req, res) {
-    res.render('blank.njk');
+    res.render('blank.html');
 });
 
 app.get('/buttons', function (req, res) {
-    res.render('buttons.njk');
+    res.render('buttons.html');
 });
 
 app.get('/charts', function (req, res) {
-    res.render('charts.njk');
+    res.render('charts.html');
+});
+
+app.get('/grids', function (req, res) {
+    res.render('grids.html');
 });
 
 app.get('/icons', function (req, res) {
-    res.render('icons.njk');
+    res.render('icons.html');
+});
+
+app.get('/inbox-del', function (req, res) {
+    res.render('inbox-details.html');
 });
 
 app.get('/inbox', function (req, res) {
-    res.render('inbox-details.njk');
-});
-
-app.get('/inbox', function (req, res) {
-    res.render('inbox.njk');
+    res.render('inbox.html');
 });
 
 app.get('/', function (req, res) {
-    res.render('index.njk');
+    res.render('index.html');
 });
 
 app.get('/login', function (req, res) {
-    res.render('login.njk');
+    res.render('login.html');
 });
 
 app.get('/maps', function (req, res) {
-    res.render('maps.njk');
+    res.render('maps.html');
 });
 
 app.get('/portlet', function (req, res) {
-    res.render('portlet.njk');
+    res.render('portlet.html');
 });
 
 app.get('/price', function (req, res) {
-    res.render('price.njk');
+    res.render('price.html');
 });
 
 app.get('/product', function (req, res) {
-    res.render('product.njk');
+    res.render('product.html');
 });
 
 app.get('/signup', function (req, res) {
-    res.render('signup.njk');
+    res.render('signup.html');
 });
 
 app.get('/typography', function (req, res) {
-    res.render('typography.njk');
+    res.render('typography.html');
 });
 
 
